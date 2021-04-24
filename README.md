@@ -1,6 +1,11 @@
 # LogicTagHelpers
 
+## CI Build
+
+[![.NET](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml/badge.svg)](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml)
+
 ## Planned tags
+
 * if
   * then
   * else
