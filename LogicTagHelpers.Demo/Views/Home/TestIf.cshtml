@@ -1,0 +1,23 @@
+﻿<h2>Test 1</h2>
+<if condition="true"><p>Should display.</p></if>
+
+<h2>Test 2</h2>
+<if condition="true">
+	<then><p>Should display.</p></then>
+	<else><p>Should not display.</p></else>
+</if>
+
+<h2>Test 3</h2>
+<if condition="false">
+	<then><p>Should not display.</p></then>
+	<else><p>Should display.</p></else>
+</if>
+
+<h2>Test 4</h2>
+<if condition="false" direct="true">
+	@{
+		int? test1 = null;
+		var result = test1.Value;
+	}
+	<p>Should not display.</p>
+</if>
