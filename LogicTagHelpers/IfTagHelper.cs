@@ -6,6 +6,7 @@ namespace LogicTagHelpers
 	/// <summary>
 	/// Conditionally include inner content.
 	/// </summary>
+	[HtmlTargetElement("if")]
 	public class IfTagHelper : TagHelper
 	{
 		/// <summary>
@@ -33,8 +34,8 @@ namespace LogicTagHelpers
 			}
 
 			var iteContext = new IfThenElseContext();
-			context.Items["IfThenElse-Context"] = iteContext;
-			context.Items["IfThenElse-Condition"] = Condition;
+			context.Items[IfThenElseContext.ContextKey] = iteContext;
+			context.Items[IfThenElseContext.ConditionKey] = Condition;
 			var childContent = await output.GetChildContentAsync();
 
 			if (iteContext.Result != null)
@@ -51,58 +52,6 @@ namespace LogicTagHelpers
 
 				output.Content.SetHtmlContent(childContent.GetContent());
 			}
-		}
-
-		public class IfThenElseContext
-		{
-			public bool HasChildTags { get; set; }
-			public string Result { get; set; }
-		}
-	}
-
-	/// <summary>
-	/// Code to show if condition is met.
-	/// </summary>
-	[HtmlTargetElement("then", ParentTag = "if")]
-	public class ThenTagHelper : TagHelper
-	{
-		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
-		{
-			var iteContext = (IfTagHelper.IfThenElseContext)context.Items["IfThenElse-Context"];
-			var iteCondition = (bool)context.Items["IfThenElse-Condition"];
-			iteContext.HasChildTags = true;
-
-			if (iteCondition)
-			{
-				var childContent = await output.GetChildContentAsync();
-				iteContext.Result = childContent.GetContent();
-			}
-
-			output.TagName = null;
-			output.SuppressOutput();
-		}
-	}
-
-	/// <summary>
-	/// Code to show if condition is not met.
-	/// </summary>
-	[HtmlTargetElement("else", ParentTag = "if")]
-	public class ElseTagHelper : TagHelper
-	{
-		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
-		{
-			var iteContext = (IfTagHelper.IfThenElseContext)context.Items["IfThenElse-Context"];
-			var iteCondition = (bool)context.Items["IfThenElse-Condition"];
-			iteContext.HasChildTags = true;
-
-			if (!iteCondition)
-			{
-				var childContent = await output.GetChildContentAsync();
-				iteContext.Result = childContent.GetContent();
-			}
-
-			output.TagName = null;
-			output.SuppressOutput();
 		}
 	}
 }
