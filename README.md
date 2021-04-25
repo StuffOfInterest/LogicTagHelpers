@@ -4,30 +4,43 @@
 | -------- | ------------- |
 | [![.NET](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml/badge.svg)](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml) | [![.NET](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test-publish.yml) |
 
-## Planned tags
+## Completed Tags
 
 * [if](#if)
   * then
   * else
 * [switch](#switch)
   * case
+
+## Future Tags
+
 * foreach
 * while
 * for
 * do
 
+## Installation
+
+Following line must be added to the `_ViewImports.cshtml` file for the logic tag helpers to be available.
+
+```
+@addTagHelper *, LogicTagHelpers
+```
+
+## Tags
+
 ### if
 
 ```html
 <if condition="(boolean)">
-   <then>(markup to display if condition matched)</then>
-   <else>(markup to display if condition not matched)</else>
+   <then>(content to display if condition matched)</then>
+   <else>(content to display if condition not matched)</else>
 </if>
 ```
 
 ```html
 <if condition="(boolean)" direct="true">
-   (markup to display if condition matched)
+   (content to display if condition matched)
 </if>
 ```
 
@@ -35,8 +48,8 @@
 
 ```html
 <switch expression="(variable)">
-   <case value="(value)"></case>
-   <case value="(value)"></case>
-   <default></default>
+   <case value="(value)">(content to display on value match)</case>
+   <case value="(value)">(content to display on value match)</case>
+   <default>(content to display if no value match)</default>
 </switch>
 ```
