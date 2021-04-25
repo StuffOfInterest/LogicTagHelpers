@@ -17,6 +17,11 @@ namespace LogicTagHelpers
 
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
+			if (Iterator == null)
+			{
+				throw new LogicTagHelperException("Iterator may not be null.");
+			}
+
 			output.TagName = null;
 			output.Content.Clear();
 

@@ -26,3 +26,16 @@
 <foreach iterator="foreachContext3">
 	<p>Should not display @(foreachContext3.Item).</p>
 </foreach>
+
+<h2>Test 4</h2>
+
+@try
+{
+	<foreach>
+		<p>Should not display.</p>
+	</foreach>
+}
+catch (Exception ex)
+{
+	<p>Expected exception occurred: '@ex.Message'.</p>
+}
