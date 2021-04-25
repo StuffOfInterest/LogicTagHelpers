@@ -33,18 +33,17 @@ namespace LogicTagHelpers
 				}
 			}
 
-			var iteContext = new IfThenElseContext();
-			context.Items[IfThenElseContext.ContextKey] = iteContext;
-			context.Items[IfThenElseContext.ConditionKey] = Condition;
+			var ifContext = new IfContext {Condition = Condition};
+			context.Items[IfContext.ContextKey] = ifContext;
 			var childContent = await output.GetChildContentAsync();
 
-			if (iteContext.Result != null)
+			if (ifContext.Result != null)
 			{
-				output.Content.SetHtmlContent(iteContext.Result);
+				output.Content.SetHtmlContent(ifContext.Result);
 			}
 			else
 			{
-				if (iteContext.HasChildTags || !Condition)
+				if (ifContext.HasChildTags || !Condition)
 				{
 					output.SuppressOutput();
 					return;

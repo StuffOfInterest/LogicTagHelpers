@@ -1,10 +1,10 @@
 ﻿namespace LogicTagHelpers
 {
-	internal class IfThenElseContext
+	internal class IfContext
 	{
 		public const string ContextKey = "IfThenElse-Context";
-		public const string ConditionKey = "IfThenElse-Condition";
 
+		public bool Condition { get; set; }
 		public bool HasChildTags { get; set; }
 		public string Result { get; set; }
 	}

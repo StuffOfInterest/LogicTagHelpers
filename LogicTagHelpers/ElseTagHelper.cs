@@ -11,14 +11,13 @@ namespace LogicTagHelpers
 	{
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
-			var iteContext = (IfThenElseContext) context.Items[IfThenElseContext.ContextKey];
-			var iteCondition = (bool) context.Items[IfThenElseContext.ConditionKey];
-			iteContext.HasChildTags = true;
+			var ifContext = (IfContext) context.Items[IfContext.ContextKey];
+			ifContext.HasChildTags = true;
 
-			if (!iteCondition)
+			if (!ifContext.Condition)
 			{
 				var childContent = await output.GetChildContentAsync();
-				iteContext.Result = childContent.GetContent();
+				ifContext.Result = childContent.GetContent();
 			}
 
 			output.TagName = null;
