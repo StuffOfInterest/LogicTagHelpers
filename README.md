@@ -11,10 +11,10 @@
   * else
 * [switch](#switch)
   * case
+* [foreach](#foreach)
 
 ## Future Tags
 
-* foreach
 * while
 * for
 * do
@@ -52,4 +52,13 @@ Following line must be added to the `_ViewImports.cshtml` file for the logic tag
    <case value="(value)">(content to display on value match)</case>
    <default>(content to display if no value match)</default>
 </switch>
+```
+
+### foreach
+
+```cshtml
+@{ var context = new ForeachContext<(type)>((values-of-type)); }
+<foreach iterator="context">
+   (content to display for each item in collection)
+</foreach>
 ```

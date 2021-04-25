@@ -1,0 +1,41 @@
+﻿@{
+	var stringList = new[] { "one", "two", "three" };
+	var numberList = new[] { 1, 22, 333 };
+	var emptyList = new List<double>();
+}
+
+<h2>Test 1</h2>
+
+@{ var foreachContext = new ForeachContext<string>(stringList); }
+<foreach iterator="foreachContext">
+	<p>Should display @(foreachContext.Item).</p>
+</foreach>
+
+<h2>Test 2</h2>
+
+@{ var foreachContext2 = new ForeachContext<int>(numberList); }
+<foreach iterator="foreachContext2">
+	<p>Should display @(foreachContext2.Item).</p>
+</foreach>
+
+<h2>Test 3</h2>
+
+<p>Should not display any additional content.</p>
+
+@{ var foreachContext3 = new ForeachContext<double>(emptyList); }
+<foreach iterator="foreachContext3">
+	<p>Should not display @(foreachContext3.Item).</p>
+</foreach>
+
+<h2>Test 4</h2>
+
+@try
+{
+	<foreach>
+		<p>Should not display.</p>
+	</foreach>
+}
+catch (Exception ex)
+{
+	<p>Expected exception occurred: '@ex.Message'.</p>
+}
