@@ -1,15 +1,15 @@
-# LogicTagHelpers
+# Logic Tag Helpers
 
-## CI Build
-
-[![.NET](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml/badge.svg)](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml)
+| CI Build | Publish Build |
+| -------- | ------------- |
+| [![.NET](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml/badge.svg)](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml) | [![.NET](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test-publish.yml) |
 
 ## Planned tags
 
-* if
+* [if](#if)
   * then
   * else
-* switch
+* [switch](#switch)
   * case
 * foreach
 * while
