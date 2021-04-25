@@ -64,5 +64,15 @@ namespace LogicTagHelpers.Tests
 			// Assert
 			Assert.IsNotNull(result);
 		}
+
+		[TestMethod]
+		public void CanCreateForeachTagHelper()
+		{
+			// Act
+			var result = new ForeachTagHelper();
+
+			// Assert
+			Assert.IsNotNull(result);
+		}
 	}
 }

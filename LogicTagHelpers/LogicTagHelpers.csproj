@@ -20,6 +20,7 @@ Future:
 * do</Description>
     <PackageProjectUrl>https://github.com/StuffOfInterest/LogicTagHelpers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/StuffOfInterest/LogicTagHelpers</RepositoryUrl>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
 
     <ItemGroup>

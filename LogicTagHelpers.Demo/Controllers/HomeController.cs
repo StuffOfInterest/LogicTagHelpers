@@ -18,5 +18,10 @@ namespace LogicTagHelpers.Demo.Controllers
 		{
 			return View();
 		}
+
+		public IActionResult TestForeach()
+		{
+			return View();
+		}
 	}
 }
