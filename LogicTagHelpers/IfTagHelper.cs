@@ -43,7 +43,7 @@ namespace LogicTagHelpers
 			}
 			else
 			{
-				if (ifContext.HasChildTags || !Condition)
+				if (ifContext.HasThen || ifContext.HasElse || !Condition)
 				{
 					output.SuppressOutput();
 					return;
