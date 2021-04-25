@@ -1,6 +1,7 @@
 # Details at:
 # https://github.com/brandedoutcast/publish-nuget
-name: publish to nuget
+# https://lukelowrey.com/use-github-actions-to-publish-nuget-packages/
+name: Publish to NuGet
 on:
   push:
     branches:
