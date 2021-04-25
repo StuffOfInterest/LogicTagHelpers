@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{A7C8F405-9E36-4AD8-AECC-BEE7220B41B4}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		.github\workflows\build-test-publish.yml = .github\workflows\build-test-publish.yml
+		.github\workflows\build-test.yml = .github\workflows\build-test.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
