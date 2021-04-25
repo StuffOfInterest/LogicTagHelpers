@@ -14,3 +14,36 @@
 	<case value="3"><p>Should not display 3.</p></case>
 	<default><p>Should display.</p></default>
 </switch>
+
+<h2>Test 3</h2>
+
+@try
+{
+<switch expression="2">
+	<case value="1"><p>Should not display 1.</p></case>
+	<case value="2"><p>Should not display 2.</p></case>
+	<case value="2"><p>Should not display 3.</p></case>
+	<case value="2"><p>Should not display 4.</p></case>
+</switch>
+}
+catch (LogicTagHelperException ex)
+{
+	<p>Expected exception encountered: '@ex.Message'.</p>
+}
+
+
+<h2>Test 4</h2>
+
+@try
+{
+	<switch expression="2">
+		<case value="1"><p>Should not display 1.</p></case>
+		<case value="2"><p>Should not display 2.</p></case>
+		<default><p>Should not display 3.</p></default>
+		<default><p>Should not display 4.</p></default>
+	</switch>
+}
+catch (LogicTagHelperException ex)
+{
+	<p>Expected exception encountered: '@ex.Message'.</p>
+}

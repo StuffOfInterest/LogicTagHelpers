@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Html;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Html;
 
 namespace LogicTagHelpers
 {
@@ -8,6 +9,8 @@ namespace LogicTagHelpers
 
 		public object Expression { get; set; }
 		public bool HasMatch { get; set; }
+		public bool HasDefault { get; set; }
 		public IHtmlContent MatchedContent { get; set; }
+		public IList<object> Values { get; } = new List<object>();
 	}
 }
