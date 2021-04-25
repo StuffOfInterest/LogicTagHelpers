@@ -7,7 +7,7 @@ namespace LogicTagHelpers
 	/// Include at most one section based on value of an expression.
 	/// </summary>
 	[HtmlTargetElement("switch")]
-	[RestrictChildren("case")]
+	[RestrictChildren("case", "default")]
 	public class SwitchTagHelper : TagHelper
 	{
 		/// <summary>

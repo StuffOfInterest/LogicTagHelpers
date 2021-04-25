@@ -4,17 +4,15 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace LogicTagHelpers
 {
 	/// <summary>
-	/// Content to display when value matches switch statement condition.
+	/// Content to display when no case statements match switch statement condition.
 	/// </summary>
-	[HtmlTargetElement("case", ParentTag = "switch")]
-	public class CaseTagHelper : TagHelper
+	[HtmlTargetElement("default", ParentTag = "switch")]
+	public class DefaultTagHelper : TagHelper
 	{
-		public object Value { get; set; }
-
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			var switchContext = (SwitchContext) context.Items[SwitchContext.ContextKey];
-			if (!switchContext.HasMatch && Value.Equals(switchContext.Expression))
+			if (!switchContext.HasMatch)
 			{
 				switchContext.MatchedContent = await output.GetChildContentAsync();
 				switchContext.HasMatch = true;

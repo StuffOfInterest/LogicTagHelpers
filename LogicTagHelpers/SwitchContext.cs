@@ -9,6 +9,5 @@ namespace LogicTagHelpers
 		public object Expression { get; set; }
 		public bool HasMatch { get; set; }
 		public IHtmlContent MatchedContent { get; set; }
-		public IHtmlContent DefaultContent { get; set; }
 	}
 }
