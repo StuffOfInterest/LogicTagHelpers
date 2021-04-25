@@ -47,3 +47,18 @@ catch (LogicTagHelperException ex)
 {
 	<p>Expected exception encountered: '@ex.Message'.</p>
 }
+
+<h2>Test 5</h2>
+
+@try
+{
+	var stringVal = "some string";
+	<switch expression="2">
+		<case value="1"><p>Should not display 1.</p></case>
+		<case value="@stringVal"><p>Should not display 2.</p></case>
+	</switch>
+}
+catch (LogicTagHelperException ex)
+{
+	<p>Expected exception encountered: '@ex.Message'.</p>
+}

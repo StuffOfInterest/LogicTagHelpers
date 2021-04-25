@@ -15,6 +15,12 @@ namespace LogicTagHelpers
 		{
 			var switchContext = (SwitchContext) context.Items[SwitchContext.ContextKey];
 
+			if (Value.GetType() != switchContext.Expression.GetType())
+			{
+				throw new LogicTagHelperException(
+					$"Case statement value type '{Value.GetType().Name}' not equal to switch statement expression type '{switchContext.Expression.GetType().Name}'.");
+			}
+
 			if (switchContext.Values.Contains(Value))
 			{
 				throw new LogicTagHelperException($"Duplicate value '{Value}' in switch statement.");
