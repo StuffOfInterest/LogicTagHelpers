@@ -16,21 +16,17 @@
 <h2>Test 4</h2>
 <p>Nothing else should display.</p>
 <if condition="false" direct="true">
-	@{
-		throw new Exception("This should not happen.");
-	}
 	<p>Should not display.</p>
+	@{ throw new Exception("This should not happen."); }
 </if>
 
 <h2>Test 5</h2>
 @try
 {
-	<if condition="false">
-		@{
-			throw new Exception("This should not happen.");
-		}
-		<p>Should not display.</p>
-	</if>
+<if condition="false">
+	<p>Should not display.</p>
+	@{ throw new Exception("This should not happen."); }
+</if>
 }
 catch (Exception ex)
 {
