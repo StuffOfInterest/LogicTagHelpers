@@ -16,8 +16,7 @@ namespace LogicTagHelpers
 
 			if (ifContext.Condition)
 			{
-				var childContent = await output.GetChildContentAsync();
-				ifContext.Result = childContent.GetContent();
+				ifContext.Result = await output.GetChildContentAsync();
 			}
 
 			output.TagName = null;

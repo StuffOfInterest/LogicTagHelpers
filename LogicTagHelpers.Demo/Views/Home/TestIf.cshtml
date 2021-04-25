@@ -14,6 +14,7 @@
 </if>
 
 <h2>Test 4</h2>
+<p>Nothing else should display.</p>
 <if condition="false" direct="true">
 	@{
 		int? test1 = null;
@@ -21,3 +22,18 @@
 	}
 	<p>Should not display.</p>
 </if>
+
+<h2>Test 5</h2>
+@try
+{
+	<if condition="false">
+		@{
+			throw new Exception("This should not happen.");
+		}
+		<p>Should not display.</p>
+	</if>
+}
+catch
+{
+	<p>Expected error occurred.</p>
+}

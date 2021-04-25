@@ -49,7 +49,7 @@ namespace LogicTagHelpers
 					return;
 				}
 
-				output.Content.SetHtmlContent(childContent.GetContent());
+				output.Content.SetHtmlContent(childContent);
 			}
 		}
 	}

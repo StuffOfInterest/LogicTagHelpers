@@ -1,4 +1,6 @@
-﻿namespace LogicTagHelpers
+﻿using Microsoft.AspNetCore.Html;
+
+namespace LogicTagHelpers
 {
 	internal class IfContext
 	{
@@ -6,6 +8,6 @@
 
 		public bool Condition { get; set; }
 		public bool HasChildTags { get; set; }
-		public string Result { get; set; }
+		public IHtmlContent Result { get; set; }
 	}
 }
