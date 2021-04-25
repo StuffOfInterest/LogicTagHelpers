@@ -11,17 +11,19 @@ namespace LogicTagHelpers
 	{
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
-			var iteContext = (IfThenElseContext) context.Items[IfThenElseContext.ContextKey];
-			var iteCondition = (bool) context.Items[IfThenElseContext.ConditionKey];
-			iteContext.HasChildTags = true;
+			var ifContext = (IfContext) context.Items[IfContext.ContextKey];
 
-			if (!iteCondition)
+			if (ifContext.HasElse)
 			{
-				var childContent = await output.GetChildContentAsync();
-				iteContext.Result = childContent.GetContent();
+				throw new LogicTagHelperException("Duplicate 'else' declaration in 'if' statement.");
 			}
 
-			output.TagName = null;
+			if (!ifContext.Condition)
+			{
+				ifContext.Result = await output.GetChildContentAsync();
+			}
+
+			ifContext.HasElse = true;
 			output.SuppressOutput();
 		}
 	}

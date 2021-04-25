@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Delbert Matlock</Authors>
-    <Company />
+    <Company>Stuff Of Interest</Company>
     <Product />
     <Description>Tag helpers to provide control logic inside of cshtml page.
 
 Done:
 * if/then/else
+* switch/case/default
 
 Future:
-* switch/case
 * foreach
 * while
 * for
