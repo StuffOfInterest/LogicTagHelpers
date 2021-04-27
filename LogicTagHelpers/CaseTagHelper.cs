@@ -15,6 +15,11 @@ namespace LogicTagHelpers
 		{
 			var switchContext = (SwitchContext) context.Items[SwitchContext.ContextKey];
 
+			if (switchContext == null)
+			{
+				throw new LogicTagHelperException("Case statement inside of switch with no valid expression.");
+			}
+
 			if (Value.GetType() != switchContext.Expression.GetType())
 			{
 				throw new LogicTagHelperException(

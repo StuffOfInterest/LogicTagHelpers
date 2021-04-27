@@ -17,48 +17,91 @@
 
 <h2>Test 3</h2>
 
-@try
-{
-	<switch expression="2">
+@{ string errorResult = null; }
+<switch expression="4">
+	@try
+	{
 		<case value="1"><p>Should not display 1.</p></case>
 		<case value="2"><p>Should not display 2.</p></case>
 		<case value="2"><p>Should not display 3.</p></case>
 		<case value="2"><p>Should not display 4.</p></case>
-	</switch>
-}
-catch (LogicTagHelperException ex)
+	}
+	catch (LogicTagHelperException ex)
+	{
+		errorResult = $"Expected exception encountered: '{ex.Message}'.";
+	}
+</switch>
+@if (!string.IsNullOrWhiteSpace(errorResult))
 {
-	<p>Expected exception encountered: '@ex.Message'.</p>
+	<p>@errorResult</p>
 }
-
 
 <h2>Test 4</h2>
 
-@try
-{
-	<switch expression="2">
+@{ errorResult = null; }
+<switch expression="3">
+	@try
+	{
 		<case value="1"><p>Should not display 1.</p></case>
 		<case value="2"><p>Should not display 2.</p></case>
 		<default><p>Should not display 3.</p></default>
 		<default><p>Should not display 4.</p></default>
-	</switch>
-}
-catch (LogicTagHelperException ex)
+	}
+	catch (LogicTagHelperException ex)
+	{
+		errorResult = $"Expected exception encountered: '{ex.Message}'.";
+	}
+</switch>
+@if (!string.IsNullOrWhiteSpace(errorResult))
 {
-	<p>Expected exception encountered: '@ex.Message'.</p>
+	<p>@errorResult</p>
 }
 
 <h2>Test 5</h2>
 
-@try
-{
+@{
 	var stringVal = "some string";
-	<switch expression="2">
+	var result = string.Empty;
+}
+<switch expression="2">
+	@try
+	{
 		<case value="1"><p>Should not display 1.</p></case>
 		<case value="@stringVal"><p>Should not display 2.</p></case>
-	</switch>
-}
-catch (LogicTagHelperException ex)
-{
-	<p>Expected exception encountered: '@ex.Message'.</p>
-}
+	}
+	catch (LogicTagHelperException ex)
+	{
+		result = $"Expected exception encountered: {ex.Message}.";
+	}
+</switch>
+<p>@result</p>
+
+<h2>Test 6</h2>
+
+@{ result = string.Empty; }
+<switch>
+	@try
+	{
+		<case value="1"><p>Should not display.</p></case>
+	}
+	catch (LogicTagHelperException ex)
+	{
+		result = $"Expected exception encountered: {ex.Message}.";
+	}
+</switch>
+<p>@result</p>
+
+<h2>Test 7</h2>
+
+@{ result = string.Empty; }
+<switch>
+	@try
+	{
+		<default><p>Should not display.</p></default>
+	}
+	catch (LogicTagHelperException ex)
+	{
+		result = $"Expected exception encountered: {ex.Message}.";
+	}
+</switch>
+<p>@result</p>
