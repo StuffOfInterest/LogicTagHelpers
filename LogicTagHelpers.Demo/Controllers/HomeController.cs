@@ -23,5 +23,10 @@ namespace LogicTagHelpers.Demo.Controllers
 		{
 			return View();
 		}
+
+		public IActionResult TestWhile()
+		{
+			return View();
+		}
 	}
 }
