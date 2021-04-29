@@ -12,7 +12,11 @@ namespace LogicTagHelpers
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			var switchContext = (SwitchContext) context.Items[SwitchContext.ContextKey];
-
+			
+			if (switchContext == null)
+			{
+				throw new LogicTagHelperException("Default statement inside of switch with no valid expression.");
+			}
 
 			if (switchContext.HasDefault)
 			{

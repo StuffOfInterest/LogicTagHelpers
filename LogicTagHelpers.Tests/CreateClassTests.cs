@@ -74,5 +74,15 @@ namespace LogicTagHelpers.Tests
 			// Assert
 			Assert.IsNotNull(result);
 		}
+
+		[TestMethod]
+		public void CanCreateWhileTagHelper()
+		{
+			// Act
+			var result = new WhileTagHelper();
+
+			// Assert
+			Assert.IsNotNull(result);
+		}
 	}
 }

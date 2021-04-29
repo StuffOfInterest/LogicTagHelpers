@@ -1,0 +1,20 @@
+﻿<h2>Test 1</h2>
+
+@{ var x = 0; }
+<while condition="() => x < 10">
+	<p>Should display @x.</p>
+	@{ x++; }
+</while>
+
+<h2>Test 2</h2>
+
+@try
+{
+	<while>
+		<p>Should not display.</p>
+	</while>
+}
+catch (Exception ex)
+{
+	<p>Expected exception occurred: '@ex.Message'.</p>
+}
