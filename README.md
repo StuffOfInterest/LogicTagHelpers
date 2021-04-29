@@ -12,10 +12,10 @@
 * [switch](#switch)
   * case
 * [foreach](#foreach)
+* [while](#while)
 
 ## Future Tags
 
-* while
 * for
 * do
 
@@ -61,4 +61,14 @@ Following line must be added to the `_ViewImports.cshtml` file for the logic tag
 <foreach iterator="context">
    (content to display for each item in collection)
 </foreach>
+```
+
+### while
+
+```cshtml
+@{ var x = 0; }
+<while condition="() => x < 10">
+	(content to display while condition is true)
+	@{ x++; }
+</while>
 ```
