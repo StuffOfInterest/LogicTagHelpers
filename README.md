@@ -13,10 +13,10 @@
   * case
 * [foreach](#foreach)
 * [while](#while)
+* [for](#for)
 
 ## Future Tags
 
-* for
 * do
 
 ## Installation
@@ -56,7 +56,7 @@ Following line must be added to the `_ViewImports.cshtml` file for the logic tag
 
 ### foreach
 
-```cshtml
+```html
 @{ var context = new ForeachContext<(type)>((values-of-type)); }
 <foreach iterator="context">
    (content to display for each item in collection)
@@ -65,10 +65,18 @@ Following line must be added to the `_ViewImports.cshtml` file for the logic tag
 
 ### while
 
-```cshtml
+```html
 @{ var x = 0; }
 <while condition="() => x < 10">
-	(content to display while condition is true)
-	@{ x++; }
+   (content to display while condition is true)
+   @{ x++; }
 </while>
+```
+
+### for
+```html
+@{ int x = default; }
+<for initialize="() => x = 0" condition="() => x < 10" update="() => x++">
+   (content to display while condition is true)
+</for>
 ```
