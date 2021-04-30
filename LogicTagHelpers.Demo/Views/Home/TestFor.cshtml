@@ -1,0 +1,6 @@
+﻿<h2>Test 1</h2>
+
+@{ int x = default; }
+<for initialize="() => x = 0" condition="() => x < 10" update="() => x++">
+	<p>Should display @x.</p>
+</for>
