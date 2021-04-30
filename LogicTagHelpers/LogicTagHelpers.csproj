@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.4.0</Version>
+    <Version>0.5.0</Version>
     <Authors>Delbert Matlock</Authors>
     <Company>Stuff Of Interest</Company>
     <Product />
@@ -14,9 +14,9 @@ Done:
 * switch/case/default
 * foreach
 * while
+* for
 
 Future:
-* for
 * do</Description>
     <PackageProjectUrl>https://github.com/StuffOfInterest/LogicTagHelpers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/StuffOfInterest/LogicTagHelpers</RepositoryUrl>
