@@ -27,6 +27,11 @@ namespace LogicTagHelpers
 
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
+			if (Condition == null)
+			{
+				throw new LogicTagHelperException("Condition may not be null.");
+			}
+
 			Initialize?.Invoke();
 
 			output.TagName = null;
