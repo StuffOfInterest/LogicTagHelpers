@@ -3,21 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.5.0</Version>
+    <Version>0.6.0</Version>
     <Authors>Delbert Matlock</Authors>
     <Company>Stuff Of Interest</Company>
     <Product />
-    <Description>Tag helpers to provide control logic inside of cshtml page.
+    <Description>Tag helpers to provide control logic inside of cshtml pages.
 
-Done:
 * if/then/else
 * switch/case/default
-* foreach
 * while
+* do (also known as 'do-while')
 * for
-
-Future:
-* do</Description>
+* foreach</Description>
     <PackageProjectUrl>https://github.com/StuffOfInterest/LogicTagHelpers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/StuffOfInterest/LogicTagHelpers</RepositoryUrl>
     <LangVersion>8</LangVersion>

@@ -1,23 +1,22 @@
 # Logic Tag Helpers
 
+Tag helpers to provide control logic inside of cshtml pages.
+
 | CI Build | Publish Build |
 | -------- | ------------- |
 | [![.NET](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml/badge.svg)](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test.yml) | [![.NET](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/StuffOfInterest/LogicTagHelpers/actions/workflows/build-test-publish.yml) |
 
-## Completed Tags
+## Tags
 
 * [if](#if)
   * then
   * else
 * [switch](#switch)
   * case
-* [foreach](#foreach)
 * [while](#while)
+* [do](#do)
 * [for](#for)
-
-## Future Tags
-
-* do
+* [foreach](#foreach)
 
 ## Installation
 
@@ -27,20 +26,20 @@ Following line must be added to the `_ViewImports.cshtml` file for the logic tag
 @addTagHelper *, LogicTagHelpers
 ```
 
-## Tags
+## Tag Examples
 
 ### if
 
 ```html
 <if condition="(boolean)">
-   <then>(content to display if condition matched)</then>
-   <else>(content to display if condition not matched)</else>
+   <then><span>content to display if condition matched</span></then>
+   <else><span>content to display if condition not matched</span></else>
 </if>
 ```
 
 ```html
 <if condition="(boolean)" direct="true">
-   (content to display if condition matched)
+   <span>content to display if condition matched</span>
 </if>
 ```
 
@@ -48,19 +47,10 @@ Following line must be added to the `_ViewImports.cshtml` file for the logic tag
 
 ```html
 <switch expression="(variable)">
-   <case value="(value)">(content to display on value match)</case>
-   <case value="(value)">(content to display on value match)</case>
-   <default>(content to display if no value match)</default>
+   <case value="(value)"><span>content to display on value match</span></case>
+   <case value="(value)"><span>content to display on value match</span></case>
+   <default><span>content to display if no value match</span></default>
 </switch>
-```
-
-### foreach
-
-```html
-@{ var context = new ForeachContext<(type)>((values-of-type)); }
-<foreach iterator="context">
-   (content to display for each item in collection)
-</foreach>
 ```
 
 ### while
@@ -68,8 +58,18 @@ Following line must be added to the `_ViewImports.cshtml` file for the logic tag
 ```html
 @{ var x = 0; }
 <while condition="() => x < 10">
-   (content to display while condition is true)
+   <span>content to display while condition is true</span>
    @{ x++; }
+</while>
+```
+
+### do
+
+```html
+@{ var x = 0; }
+<while condition="() => x < 10">
+   @{ x++; }
+   <span>content to display until condition is not true</span>
 </while>
 ```
 
@@ -77,6 +77,15 @@ Following line must be added to the `_ViewImports.cshtml` file for the logic tag
 ```html
 @{ int x = default; }
 <for initialize="() => x = 0" condition="() => x < 10" update="() => x++">
-   (content to display while condition is true)
+   <span>content to display while condition is true</span>
 </for>
+```
+
+### foreach
+
+```html
+@{ var context = new ForeachContext<(type)>((values-of-type)); }
+<foreach iterator="context">
+   <span>content to display for each item in collection</span>
+</foreach>
 ```
