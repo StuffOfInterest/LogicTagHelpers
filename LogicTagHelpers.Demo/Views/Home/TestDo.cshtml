@@ -1,17 +1,18 @@
 ﻿<h2>Test 1</h2>
 
-@{ int x = default; }
-<for initialize="() => x = 0" condition="() => x < 10" update="() => x++">
+@{ var x = 0; }
+<do condition="() => x < 10">
+	@{ x++; }
 	<p>Should display @x.</p>
-</for>
+</do>
 
 <h2>Test 2</h2>
 
 @try
 {
-	<for>
+	<do>
 		<p>Should not display.</p>
-	</for>
+	</do>
 }
 catch (Exception ex)
 {

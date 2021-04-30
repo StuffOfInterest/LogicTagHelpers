@@ -84,5 +84,25 @@ namespace LogicTagHelpers.Tests
 			// Assert
 			Assert.IsNotNull(result);
 		}
+
+		[TestMethod]
+		public void CanCreateForTagHelper()
+		{
+			// Act
+			var result = new ForTagHelper();
+
+			// Assert
+			Assert.IsNotNull(result);
+		}
+
+		[TestMethod]
+		public void CanCreateDoTagHelper()
+		{
+			// Act
+			var result = new DoTagHelper();
+
+			// Assert
+			Assert.IsNotNull(result);
+		}
 	}
 }

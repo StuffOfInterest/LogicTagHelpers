@@ -31,6 +31,5 @@ namespace LogicTagHelpers
 				output.Content.AppendHtml(childContent);
 			} while (Condition.Invoke());
 		}
-
 	}
 }
