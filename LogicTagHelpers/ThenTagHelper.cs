@@ -9,6 +9,9 @@ namespace LogicTagHelpers
 	[HtmlTargetElement("then", ParentTag = "if")]
 	public class ThenTagHelper : TagHelper
 	{
+		/// <summary>
+		/// Internal tag helper processing.
+		/// </summary>
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			var ifContext = (IfContext) context.Items[IfContext.ContextKey];

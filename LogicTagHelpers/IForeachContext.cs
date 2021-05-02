@@ -6,6 +6,11 @@
 	/// </summary>
 	public interface IForeachContext
 	{
+		/// <summary>
+		/// Loads next item into item property.
+		/// Not intended for direct use.
+		/// </summary>
+		/// <returns>Boolean indicating if another item is available.</returns>
 		bool LoadNext();
 	}
 }

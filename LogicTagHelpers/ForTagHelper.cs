@@ -25,6 +25,9 @@ namespace LogicTagHelpers
 		/// </summary>
 		public Action Update { get; set; }
 
+		/// <summary>
+		/// Internal tag helper processing.
+		/// </summary>
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			if (Condition == null)

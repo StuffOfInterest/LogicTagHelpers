@@ -15,6 +15,9 @@ namespace LogicTagHelpers
 		/// </summary>
 		public object Expression { get; set; }
 
+		/// <summary>
+		/// Internal tag helper processing.
+		/// </summary>
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			output.TagName = null;
