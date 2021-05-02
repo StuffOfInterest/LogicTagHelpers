@@ -20,6 +20,9 @@ namespace LogicTagHelpers
 		/// </summary>
 		public bool Direct { get; set; }
 
+		/// <summary>
+		/// Internal tag helper processing.
+		/// </summary>
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			output.TagName = null;

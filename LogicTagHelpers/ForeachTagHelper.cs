@@ -15,6 +15,9 @@ namespace LogicTagHelpers
 		/// </summary>
 		public IForeachContext Iterator { get; set; }
 
+		/// <summary>
+		/// Internal tag helper processing.
+		/// </summary>
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			if (Iterator == null)

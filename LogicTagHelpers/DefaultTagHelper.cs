@@ -9,6 +9,9 @@ namespace LogicTagHelpers
 	[HtmlTargetElement("default", ParentTag = "switch")]
 	public class DefaultTagHelper : TagHelper
 	{
+		/// <summary>
+		/// Internal tag helper processing.
+		/// </summary>
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			var switchContext = (SwitchContext) context.Items[SwitchContext.ContextKey];
