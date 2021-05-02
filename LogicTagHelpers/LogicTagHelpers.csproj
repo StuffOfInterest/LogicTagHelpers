@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.6.0</Version>
+    <Version>1.0.0</Version>
     <Authors>Delbert Matlock</Authors>
     <Company>Stuff Of Interest</Company>
     <Product />
@@ -18,10 +18,15 @@
     <PackageProjectUrl>https://github.com/StuffOfInterest/LogicTagHelpers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/StuffOfInterest/LogicTagHelpers</RepositoryUrl>
     <LangVersion>8</LangVersion>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
     <ItemGroup>
