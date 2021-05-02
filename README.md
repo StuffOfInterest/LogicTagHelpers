@@ -10,26 +10,31 @@ Tag helpers to provide control logic inside of cshtml pages.
 
 [Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro) bring integration of server side code and HTML rendering.
 One thing missing is the ability to control logic flow (branching and looping) without falling back on embedded C# code inside of the HTML markup,
-via CSHTML. **Logic Tag Helpers** provides two branching ("if" and "switch") and four looping ("while", "do", "for", and "foreach") tags that can
+via CSHTML. **Logic Tag Helpers** provides two selection ("if" and "switch") and four iteration ("while", "do", "for", and "foreach") tags that can
 allow creation of complex CSHTML pages with minimal embedded C# code.
 
-Use of these tags is simple.  First, import the [NuGet package](https://www.nuget.org/packages/LogicTagHelpers/).  Next, add [one line](#installation) to the `_ViewImports.cshtml` file.
+Use of these tags is simple.  First, import the [NuGet package](https://www.nuget.org/packages/LogicTagHelpers/).  
+Next, [add one line](#installation) to the `_ViewImports.cshtml` file.
 Finally, add [the tags](#tag-definitions).  The branch tags require no external C# code, although expressions can be used for setitng conditions.
-The looping tags will require at least one line to setup a variable but most logic can be defined with 
+The looping tags will require at least one line to setup a variable, but most logic can be defined with 
 [lambda expressions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions) instead of function
 references.
 
 ## Tags
 
-* [if](#if)
-  * then
-  * else
-* [switch](#switch)
-  * case
-* [while](#while)
-* [do](#do)
-* [for](#for)
-* [foreach](#foreach)
+All six tags are derived from their C# language definitions.
+
+* Selection Statements
+  * [if](#if) ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/if-else))
+    * then
+    * else
+  * [switch](#switch) ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch))
+    * case
+* Iteration Statements
+  * [while](#while) ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/while))
+  * [do](#do) ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/do))
+  * [for](#for) ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/for))
+  * [foreach](#foreach) ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/foreach-in))
 
 ## Installation
 
@@ -118,10 +123,9 @@ Only the condition test is required as there is no way to exit the loop without 
 
 ### foreach
 
-The `foreach` requires a context object in order to hanlde iteration across a set of values.
-The context, a `ForeachContext` object, must be initialized before the loop and passed in
-as the `iterator` attribute.
-Inside of the loop, the `Item` property will be updated with the current item from the collection to operator on.
+The `foreach` requires a context object in order to hanlde iteration across a set of values. The context, a `ForeachContext` 
+object, must be initialized before the loop and passed in as the `iterator` attribute. Inside of the loop, the `Item` property 
+will be updated with the current item from the collection to operator on.
 
 ```html
 @{ var context = new ForeachContext<int>(Model.Numbers); }
@@ -133,4 +137,14 @@ Inside of the loop, the `Item` property will be updated with the current item fr
 ## Future
 
 The only future features which may be added are a `continue` and a `break` tag for the loops to implement
-the same logic available in most programming languages.
+the same logic available in the C# language.
+
+## Contributing
+
+If you wish to help with this project, you may [submit an issue](https://github.com/StuffOfInterest/LogicTagHelpers/issues)
+to let me know what needs fixed or added to the library.  You may also 
+[submit a pull request](https://github.com/StuffOfInterest/LogicTagHelpers/pulls) if you want to make any improvements.
+
+## Author
+
+This project was created by [Delbert Matlock](https://github.com/StuffOfInterest).
