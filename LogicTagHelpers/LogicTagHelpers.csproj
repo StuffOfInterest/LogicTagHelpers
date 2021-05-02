@@ -19,6 +19,7 @@
     <RepositoryUrl>https://github.com/StuffOfInterest/LogicTagHelpers</RepositoryUrl>
     <LangVersion>8</LangVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
