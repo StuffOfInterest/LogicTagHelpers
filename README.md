@@ -110,10 +110,11 @@ usually presented as a lambda expression, is evaluated after each pass through t
 </do>
 ```
 
-A `for` loop contains three attributes, an initialization, a condition test, and an update.  
-Only the condition test is required as there is no way to exit the loop without one.
-
 ### for
+
+A `for` loop contains three attributes, an initialization, a condition test, and an update. Only the condition test is 
+required as there is no way to exit the loop without one.
+
 ```html
 @{ int x = default; }
 <for initialize="() => x = 0" condition="() => x < 10" update="() => x++">
@@ -142,7 +143,7 @@ the same logic available in the C# language.
 ## Contributing
 
 If you wish to help with this project, you may [submit an issue](https://github.com/StuffOfInterest/LogicTagHelpers/issues)
-to let me know what needs fixed or added to the library.  You may also 
+to let me know what needs fixed or added to the library.  You may also
 [submit a pull request](https://github.com/StuffOfInterest/LogicTagHelpers/pulls) if you want to make any improvements.
 
 ## Author
