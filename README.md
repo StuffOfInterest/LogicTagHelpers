@@ -13,12 +13,10 @@ One thing missing is the ability to control logic flow (branching and looping) w
 via CSHTML. **Logic Tag Helpers** provides two selection ("if" and "switch") and four iteration ("while", "do", "for", and "foreach") tags that can
 allow creation of complex CSHTML pages with minimal embedded C# code.
 
-Use of these tags is simple.  First, import the [NuGet package](https://www.nuget.org/packages/LogicTagHelpers/).  
-Next, [add one line](#installation) to the `_ViewImports.cshtml` file.
-Finally, add [the tags](#tag-definitions).  The branch tags require no external C# code, although expressions can be used for setitng conditions.
-The looping tags will require at least one line to setup a variable, but most logic can be defined with 
-[lambda expressions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions) instead of function
-references.
+Use of these tags is simple. First, import the [NuGet package](https://www.nuget.org/packages/LogicTagHelpers/). Next, [add one line](#installation)
+to the `_ViewImports.cshtml` file. Finally, add [the tags](#tag-definitions).  The branch tags require no external C# code, although expressions can
+be used for setitng conditions. The looping tags will require at least one line to setup a variable, but most logic can be defined with
+[lambda expressions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions) instead of function references.
 
 ## Tags
 
@@ -52,7 +50,7 @@ Below are simple examples for each of the logic tags.
 
 Basic if/then/else may have at most one `then` and one `else` tag inside the `if` tag.
 
-```html
+```cshtml
 <if condition="Model.IsApproved">
    <then><p>The purchase was approved.</p></then>
    <else><p>The vendor declined your purchase.</p></else>
@@ -63,7 +61,7 @@ It is also possible to do an `if` tag with content directly nested inside.  Howe
 although it may not be displayed if the condition is false.  To avoid this behavior, add the `direct="true"` attribute to the `if` tag 
 to prevent evaulation unless the condition is met.
 
-```html
+```cshtml
 @{ var isCanceled = Model.IsOrdered && !Model.IsPaid; }
 <if condition="isCanceled" direct="true">
    <p>Order was canceled due to non-payment on @Model.CancelDate.</p>
@@ -76,7 +74,7 @@ There are two restrictions for the `switch` tag.  First, the value attribute on 
 expression attribute on the `switch` tag evaluates to.  Second, the value for each `case` tag may only appear once, which includes the
 catch all in the `default` tag.
 
-```html
+```cshtml
 <switch expression="Model.OrderStatusId">
    <case value="1"><p>Your order has been placed.</p></case>
    <case value="2"><p>Your order has been shipped.</p></case>
@@ -89,7 +87,7 @@ catch all in the `default` tag.
 For a `while` loop, a control variable needs to be established outside of the loop and then a function,
 usually presented as a lambda expression, is evaluated before each pass through the loop.
 
-```html
+```cshtml
 @{ var x = 0; }
 <while condition="() => x < 10">
    <p>This is line @x.</p>
@@ -102,7 +100,7 @@ usually presented as a lambda expression, is evaluated before each pass through 
 For a `do` loop, a control variable needs to be established outside of the loop and then a function,
 usually presented as a lambda expression, is evaluated after each pass through the loop.
 
-```html
+```cshtml
 @{ var x = 0; }
 <do condition="() => x < 10">
    @{ x++; }
@@ -115,7 +113,7 @@ usually presented as a lambda expression, is evaluated after each pass through t
 A `for` loop contains three attributes, an initialization, a condition test, and an update. Only the condition test is 
 required as there is no way to exit the loop without one.
 
-```html
+```cshtml
 @{ int x = default; }
 <for initialize="() => x = 0" condition="() => x < 10" update="() => x++">
    <span>content to display while condition is true</span>
@@ -128,7 +126,7 @@ The `foreach` requires a context object in order to hanlde iteration across a se
 object, must be initialized before the loop and passed in as the `iterator` attribute. Inside of the loop, the `Item` property 
 will be updated with the current item from the collection to operator on.
 
-```html
+```cshtml
 @{ var context = new ForeachContext<int>(Model.Numbers); }
 <foreach iterator="context">
    <p>This is line @context.Item.</p>
