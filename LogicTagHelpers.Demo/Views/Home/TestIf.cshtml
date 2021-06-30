@@ -1,5 +1,9 @@
 ﻿<h2>Test 1</h2>
-<if-then condition="true"><p>Should display.</p></if-then>
+<if condition="true">
+	<then>
+		<p>Should display.</p>
+	</then>
+</if>
 
 <h2>Test 2</h2>
 <if condition="true">
@@ -14,26 +18,6 @@
 </if>
 
 <h2>Test 4</h2>
-<p>Nothing else should display.</p>
-<if-then condition="false">
-	<p>Should not display.</p>
-	@{ throw new Exception("This should not happen."); }
-</if-then>
-
-<h2>Test 5</h2>
-@try
-{
-<if-then condition="false">
-	<p>Should not display.</p>
-	@{ throw new Exception("This should not happen."); }
-</if-then>
-}
-catch (Exception ex)
-{
-	<p>Expected exception occurred: '@ex.Message'.</p>
-}
-
-<h2>Test 6</h2>
 @try
 {
 <if condition="false">
@@ -46,7 +30,7 @@ catch (Exception ex)
 	<p>Expected exception occurred: '@ex.Message'.</p>
 }
 
-<h2>Test 7</h2>
+<h2>Test 5</h2>
 @try
 {
 <if condition="false">

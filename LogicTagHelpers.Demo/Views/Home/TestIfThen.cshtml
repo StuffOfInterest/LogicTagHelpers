@@ -1,0 +1,9 @@
+﻿<h2>Test 1</h2>
+<if-then condition="true"><p>Should display.</p></if-then>
+
+<h2>Test 2</h2>
+<p>Nothing else should display.</p>
+<if-then condition="false">
+	<p>Should not display.</p>
+	@{ throw new Exception("This should not happen."); }
+</if-then>

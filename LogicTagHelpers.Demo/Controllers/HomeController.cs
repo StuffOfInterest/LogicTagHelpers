@@ -14,6 +14,11 @@ namespace LogicTagHelpers.Demo.Controllers
 			return View();
 		}
 
+		public IActionResult TestIfThen()
+		{
+			return View();
+		}
+
 		public IActionResult TestSwitch()
 		{
 			return View();
