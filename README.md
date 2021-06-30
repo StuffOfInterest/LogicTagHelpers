@@ -26,6 +26,7 @@ All six tags are derived from their C# language definitions.
   * [if](#if) ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/if-else))
     * then
     * else
+  * [if-then](#if-then)
   * [switch](#switch) ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch))
     * case
 * Iteration Statements
@@ -48,7 +49,7 @@ Below are simple examples for each of the logic tags.
 
 ### if
 
-Basic if/then/else may have at most one `then` and one `else` tag inside the `if` tag.
+Basic if/then/else may have at most one `<then>` and one `<else>` tag inside the `<if>` tag.
 
 ```cshtml
 <if condition="Model.IsApproved">
@@ -57,22 +58,23 @@ Basic if/then/else may have at most one `then` and one `else` tag inside the `if
 </if>
 ```
 
-It is also possible to do an `if` tag with content directly nested inside.  However, if this is done the inner content will be evaluated
-although it may not be displayed if the condition is false.  To avoid this behavior, add the `direct="true"` attribute to the `if` tag 
-to prevent evaulation unless the condition is met.
+### if-then
+
+It is also possible to do an `<if>` tag with content directly nested inside.  To avoid evaluating inner content to find `<then>`
+or `<else>` tags, a special `<if-then>` tag is available.
 
 ```cshtml
 @{ var isCanceled = Model.IsOrdered && !Model.IsPaid; }
-<if condition="isCanceled" direct="true">
+<if-then condition="isCanceled" direct="true">
    <p>Order was canceled due to non-payment on @Model.CancelDate.</p>
-</if>
+</if-then>
 ```
 
 ### switch
 
-There are two restrictions for the `switch` tag.  First, the value attribute on the `case` tags must be of the same type as what the
-expression attribute on the `switch` tag evaluates to.  Second, the value for each `case` tag may only appear once, which includes the
-catch all in the `default` tag.
+There are two restrictions for the `<switch>` tag.  First, the value attribute on the `<case>` tags must be of the same type as what the
+expression attribute on the `<switch>` tag evaluates to.  Second, the value for each `<case>` tag may only appear once, which includes the
+catch all in the `<default>` tag.
 
 ```cshtml
 <switch expression="Model.OrderStatusId">
@@ -84,7 +86,7 @@ catch all in the `default` tag.
 
 ### while
 
-For a `while` loop, a control variable needs to be established outside of the loop and then a function,
+For a `<while>` loop, a control variable needs to be established outside of the loop and then a function,
 usually presented as a lambda expression, is evaluated before each pass through the loop.
 
 ```cshtml
@@ -97,7 +99,7 @@ usually presented as a lambda expression, is evaluated before each pass through 
 
 ### do
 
-For a `do` loop, a control variable needs to be established outside of the loop and then a function,
+For a `<do>` loop, a control variable needs to be established outside of the loop and then a function,
 usually presented as a lambda expression, is evaluated after each pass through the loop.
 
 ```cshtml
@@ -110,7 +112,7 @@ usually presented as a lambda expression, is evaluated after each pass through t
 
 ### for
 
-A `for` loop contains three attributes, an initialization, a condition test, and an update. Only the condition test is 
+A `<for>` loop contains three attributes, an initialization, a condition test, and an update. Only the condition test is 
 required as there is no way to exit the loop without one.
 
 ```cshtml
@@ -122,7 +124,7 @@ required as there is no way to exit the loop without one.
 
 ### foreach
 
-The `foreach` requires a context object in order to hanlde iteration across a set of values. The context, a `ForeachContext` 
+The `<foreach>` requires a context object in order to hanlde iteration across a set of values. The context, a `ForeachContext` 
 object, must be initialized before the loop and passed in as the `iterator` attribute. Inside of the loop, the `Item` property 
 will be updated with the current item from the collection to operator on.
 
@@ -135,7 +137,7 @@ will be updated with the current item from the collection to operator on.
 
 ## Future
 
-The only future features which may be added are a `continue` and a `break` tag for the loops to implement
+The only future features which may be added are a `<continue>` and a `<break>` tag for the loops to implement
 the same logic available in the C# language.
 
 ## Contributing
