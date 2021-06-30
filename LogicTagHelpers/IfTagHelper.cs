@@ -5,8 +5,10 @@ namespace LogicTagHelpers
 {
 	/// <summary>
 	/// Conditionally include inner content.
+	/// Use &lt;then&gt; or &lt;else&gt; to define content to include if condition evaluates true or false.
 	/// </summary>
 	[HtmlTargetElement("if")]
+	[RestrictChildren("then", "else")]
 	public class IfTagHelper : TagHelper
 	{
 		/// <summary>
@@ -15,26 +17,11 @@ namespace LogicTagHelpers
 		public bool Condition { get; set; } = true;
 
 		/// <summary>
-		/// Use child content directly without looking for &lt;then&gt; or &lt;else&gt; tags.
-		/// This will prevent evaluation of the inner markup if the condition is not met.
-		/// </summary>
-		public bool Direct { get; set; }
-
-		/// <summary>
 		/// Internal tag helper processing.
 		/// </summary>
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			output.TagName = null;
-
-			if (Direct)
-			{
-				if (!Condition)
-				{
-					output.SuppressOutput();
-					return;
-				}
-			}
 
 			var ifContext = new IfContext {Condition = Condition};
 			context.Items[IfContext.ContextKey] = ifContext;
