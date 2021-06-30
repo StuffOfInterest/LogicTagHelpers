@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <Authors>Delbert Matlock</Authors>
     <Company>Stuff Of Interest</Company>
     <Product />
     <Description>Tag helpers to provide control logic inside of cshtml pages.
 
-* if/then/else
+* if/then/else (plus 'if-then')
 * switch/case/default
 * while
 * do (also known as 'do-while')
